@@ -130,8 +130,6 @@ export const login = async (req, res) => {
       });
     }
 
-    console.log("print1");
-
     // check email exist
     let user = await User.findOne({ email });
     if (!user) {
@@ -142,12 +140,9 @@ export const login = async (req, res) => {
     }
 
 
-    console.log("print2");
     console.log(user);
     // check password is valid
     const matched = await bcrypt.compare(password,user.password)
-
-    console.log("print3");
 
     if (!matched) {
       return res.status(400).json({
@@ -161,7 +156,6 @@ export const login = async (req, res) => {
       userEmail: user.email,
     };
 
-    console.log("print4");
     // jwt token signing
     const token = jwt.sign(tokenData, process.env.SECRET_KEY, {
       expiresIn: "1d",
