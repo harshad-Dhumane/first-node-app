@@ -26,6 +26,7 @@ export const createUser = async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 }
+
 // Update User
 export const updateUser = async (req, res) => {
   try {
@@ -75,6 +76,7 @@ export const getAllUser = async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 }
+
 
 
 export const register = async (req, res) => {
@@ -142,7 +144,7 @@ export const login = async (req, res) => {
 
     console.log(user);
     // check password is valid
-    const matched = await bcrypt.compare(password,user.password)
+    const matched = await bcrypt.compare(password, user.password)
 
     if (!matched) {
       return res.status(400).json({

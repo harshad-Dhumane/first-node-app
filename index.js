@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import userRoute from "./routes/userRoute.js"
+import bookRoute from "./routes/bookRoute.js"
 
 
 
@@ -24,4 +25,6 @@ mongoose.connect(MONGO_URL).then(() => {
     console.log(error);
 });
 
+
 app.use("/user",userRoute);
+app.use("/book",bookRoute);

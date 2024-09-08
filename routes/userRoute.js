@@ -8,7 +8,7 @@ route.get("/getAllUser",getAllUser);
 route.put("/updateUser",updateUser);
 route.delete("/deleteUser",deleteUser);
 route.post("/login",login);
-route.post("/register",register);
+route.post("/register",register)
 
 
 export default route;
